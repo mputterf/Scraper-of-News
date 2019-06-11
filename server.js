@@ -18,9 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-// Require all models
-// var db = require("./models");
-
 // Import routes and give the server access to them.
 var routes = require("./controllers/scraper_controller.js");
 
