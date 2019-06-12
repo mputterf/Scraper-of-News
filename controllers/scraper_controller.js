@@ -22,25 +22,36 @@ router.get("/scrape", function (req, res) {
 
         var result = [];
         // console.log($)
-        // Now, we grab every h2 within an article tag, and do the following:
-        $("article h3").each(function (i, element) {
+        //xrnccd appears to be the class name of the div that contains the article and thumbnail
+        // the article name and link are separate from the thumbnail
+        $(".xrnccd").each(function (i, element) {
             // Save an empty result object
 
 
             // Add the text and href of every link, and save them as properties of the result object
             var title = $(element)
-                .find("a")
+                .find("article")
+                .children("h3")
+                .children("a")
                 .text();
             var link = $(element)
+                .find("article")
+                .children("h3")
                 .find("a")
                 .attr("href");
+            var thumbnail = $(element)
+                .find("a")
+                .children("figure")
+                .find("img")
+                .attr("src")
 
             // console.log(element)
-
+            // console.log(thumbnail)
             // Links are just everything after .com, so we'll put https://news.google.com in front for a working line
             result.push({
                 title: title,
-                link: link.replace(/^\.+/, 'https://news.google.com')
+                link: link.replace(/^\.+/, 'https://news.google.com'),
+                thumbnail: thumbnail
             })
 
             // Send a message to the client
