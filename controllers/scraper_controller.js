@@ -37,6 +37,16 @@ router.post("/api/savearticle", function (req, res) {
         });
 });
 
+router.delete("/api/deletearticle/:id", function (req, res) {
+    db.Article.deleteOne({ _id: req.params.id })
+        .then(function (dbArticle) {
+            console.log("removed:", dbArticle);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+});
+
 router.get("/scrape", function (req, res) {
     var url = "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB?hl=en-US&gl=US&ceid=US:en"
     // var url = "http://www.echojs.com/"

@@ -5,7 +5,6 @@ $(document).ready(function () {
         var link = $(this).parents(".card").find(".article-link").attr("href");
         var thumbnail = $(this).parents(".card").find("img").attr("src");
 
-
         console.log("title: " + title + " link: " + link + " thumbnail: " + thumbnail)
 
         var article = {
@@ -16,7 +15,9 @@ $(document).ready(function () {
 
         $.post("api/savearticle", article, function () {
             console.log("Sent to post route")
-        })
+        });
 
+
+        $(this).replaceWith("<p>Saved!</p>");
     });
 });
