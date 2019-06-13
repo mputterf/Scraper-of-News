@@ -14,7 +14,7 @@
                 <a class="nav-link" id="scrape" href="/scrape">Scrape</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="saved" href="#">Saved Articles</a>
+                <a class="nav-link" id="saved" href="/savedarticles">Saved Articles</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="delete" href="#">Delete Articles</a>
@@ -23,7 +23,7 @@
 
     </div>
 </nav>
-
+<br>
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -52,9 +52,9 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{this.title}}</h5>
-                                <a href={{this.link}}>{{this.link}}</a>
+                                <a class="article-link" target=" _blank" href={{this.link}}>{{this.link}}</a>
                                 <br>
-                                <a href="#" class="btn btn-primary">Save Article</a>
+                                <a class="btn btn-primary article-save">Save Article</a>
                             </div>
                         </div>
                     </div>

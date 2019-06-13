@@ -12,6 +12,20 @@ router.get("/", function (req, res) {
     res.render("index");
 });
 
+router.get("/savedarticles", function (req, res) {
+    res.render("savedarticles");
+});
+
+router.post("/api/savearticle", function (req, res) {
+    db.Article.create(req.body)
+        .then(function (dbArticle) {
+            console.log(dbArticle);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+});
+
 router.get("/scrape", function (req, res) {
     var url = "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB?hl=en-US&gl=US&ceid=US:en"
     // var url = "http://www.echojs.com/"
