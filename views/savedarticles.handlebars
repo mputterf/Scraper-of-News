@@ -10,15 +10,9 @@
             <li class="nav-item">
                 <a class="nav-link" id="home" href="/">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="scrape" href="/scrape">Scrape</a>
-            </li>
             <li class="nav-item active">
                 <a class="nav-link" id="saved" href="/savedarticles">Saved Articles <span
                         class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="delete" href="#">Delete Articles</a>
             </li>
         </ul>
 
@@ -41,10 +35,12 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{this.title}}</h5>
-                                <a class="article-link" target=" _blank" href={{this.link}}>{{this.link}}</a>
+                                <a class="btn btn-success article-link" target=" _blank" href={{this.link}}>Go to
+                                    page</a>
                                 <br>
-                                <a class="btn btn-info add-note">Add Note</a>
-                                <a class="btn btn-danger add-note">Delete Article</a>
+                                <br>
+                                <button class="btn btn-info add-note">Add Note</button>
+                                <button class="btn btn-danger delete-article">Delete Article</button>
                             </div>
                         </div>
                     </div>
