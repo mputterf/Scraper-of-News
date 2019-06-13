@@ -13,7 +13,18 @@ router.get("/", function (req, res) {
 });
 
 router.get("/savedarticles", function (req, res) {
-    res.render("savedarticles");
+    db.Article.find({})
+        .then(function (dbArticle) {
+            // If we were able to successfully find Articles, send them back to the client
+            res.render("savedarticles", { articles: dbArticle });
+            // res.json(dbArticle);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+
+    // res.render("savedarticles");
 });
 
 router.post("/api/savearticle", function (req, res) {

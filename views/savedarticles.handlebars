@@ -25,3 +25,35 @@
     </div>
 </nav>
 <br>
+
+<div class="container">
+
+    <div class="row">
+
+        {{#each articles}}
+        <div class="col-lg-6">
+            <div class="article-holder text-center">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src={{this.thumbnail}} class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.title}}</h5>
+                                <a class="article-link" target=" _blank" href={{this.link}}>{{this.link}}</a>
+                                <br>
+                                <a class="btn btn-info add-note">Add Note</a>
+                                <a class="btn btn-danger add-note">Delete Article</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+    </div>
+
+
+</div>
