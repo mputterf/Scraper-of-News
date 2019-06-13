@@ -58,7 +58,7 @@ router.get("/scrape", function (req, res) {
 
         });
 
-        res.json(result);
+        res.render("index", { articles: result });
     });
 });
 
