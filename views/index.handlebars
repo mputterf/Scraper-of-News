@@ -24,26 +24,45 @@
     </div>
 </nav>
 
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Hello, user!</h1>
+        <p class="lead">This app scrapes Google New's technology section for some techy articles.</p>
+        <hr class="my-4">
+        <p>Press the button below to scrape some articles.</p>
+        <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape</a>
+    </div>
+
+</div>
+
+
 <div class="container">
 
     <div class="row">
-        <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-                to
-                featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="article-holder">
-            {{#each articles}}
-            <p>{{this.title}}</p>
-            {{/each}}
+        {{#each articles}}
+        <div class="col-lg-6">
+            <div class="article-holder text-center">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src={{this.thumbnail}} class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.title}}</h5>
+                                <a href={{this.link}}>{{this.link}}</a>
+                                <br>
+                                <a href="#" class="btn btn-primary">Save Article</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        {{/each}}
     </div>
 
 
