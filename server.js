@@ -25,7 +25,8 @@ var routes = require("./controllers/scraper_controller.js");
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/newsScrapeDB", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScrapeDB"
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Start the server
 app.listen(PORT, function () {
