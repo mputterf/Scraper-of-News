@@ -6,15 +6,26 @@
 </div>
 
 
-<input type="text" id="note">
-<button class="btn btn-primary create-note" data-id={{articles._id}}>Add Note</button>
 
 
 
-{{#each articles.note}}
+<div class="container">
+    <input type="text" id="note">
+    <button class="btn btn-primary create-note" data-id={{articles._id}}>Add Note</button>
 
-{{this.body}}
+    <div class="row">
 
-{{/each}}
+        {{#each articles.note}}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">{{this.body}}</p>
+                <a href="#" class="btn btn-danger">Remove Note</a>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>
+
 
 <script src="/assets/js/notes.js"></script>
