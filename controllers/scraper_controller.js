@@ -72,6 +72,16 @@ router.post("/api/savearticle", function (req, res) {
         });
 });
 
+router.delete("/api/deletenote/:id", function (req, res) {
+    db.Note.deleteOne({ _id: req.params.id })
+        .then(function (dbNote) {
+            console.log("removed:", dbNote);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+});
+
 router.delete("/api/deletearticle/:id", function (req, res) {
     db.Article.deleteOne({ _id: req.params.id })
         .then(function (dbArticle) {

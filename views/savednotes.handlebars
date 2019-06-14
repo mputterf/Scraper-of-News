@@ -16,10 +16,10 @@
     <div class="row">
 
         {{#each articles.note}}
-        <div class="card" style="width: 18rem;">
+        <div class="card" data-id={{this._id}} style="width: 18rem;">
             <div class="card-body">
                 <p class="card-text">{{this.body}}</p>
-                <a href="#" class="btn btn-danger">Remove Note</a>
+                <button class="btn btn-danger delete-note">Remove Note</button>
             </div>
         </div>
         {{/each}}

@@ -23,9 +23,20 @@ $(document).ready(function () {
                 // Empty the notes section
                 $(".create-note").empty();
             });
-
-        // $(this).parents(".card").remove();
     });
 
+    $(".delete-note").on("click", function (event) {
+        var id = $(this).parents(".card").data("id");
+        console.log("id: " + id);
+
+
+        $.ajax("/api/deletenote/" + id, {
+            type: "DELETE"
+        }).then(function () {
+            console.log("Sent to delete route");
+        });
+
+        $(this).parents(".card").remove();
+    });
 
 });
