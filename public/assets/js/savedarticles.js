@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    // var id = $(this).parents(".card").data("id");
+
     $(".delete-article").on("click", function (event) {
         var id = $(this).parents(".card").data("id");
         console.log("id: " + id);
@@ -13,4 +15,9 @@ $(document).ready(function () {
 
         $(this).parents(".card").remove();
     });
+
+    $(".add-note").on("click", function (event) {
+        var id = $(this).parents(".card").data("id");
+        window.location.href = "/notes/" + id;
+    })
 });

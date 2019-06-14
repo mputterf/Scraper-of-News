@@ -1,0 +1,31 @@
+$(document).ready(function () {
+
+    // var id = $(this).parents(".card").data("id");
+
+    $(".create-note").on("click", function (event) {
+
+        var note = $("#note").val();
+        var id = $(this).data("id");
+        console.log(id, note);
+
+        $.ajax({
+            method: "POST",
+            url: "/notes/" + id,
+            data: {
+                // Value taken from note textarea
+                body: note
+            }
+        })
+            // With that done
+            .then(function (data) {
+                // Log the response
+                console.log(data);
+                // Empty the notes section
+                $(".create-note").empty();
+            });
+
+        // $(this).parents(".card").remove();
+    });
+
+
+});
