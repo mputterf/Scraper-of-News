@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $(".create-note").on("click", function (event) {
 
-        var note = $("#note").val();
+        var note = $(".note").val();
         var id = $(this).data("id");
         console.log(id, note);
 
@@ -21,7 +21,8 @@ $(document).ready(function () {
                 // Log the response
                 console.log(data);
                 // Empty the notes section
-                $(".create-note").empty();
+                $(".note").val("");
+                location.reload();
             });
     });
 
